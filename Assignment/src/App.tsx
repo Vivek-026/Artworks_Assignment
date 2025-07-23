@@ -19,7 +19,7 @@ function App() {
 
   const [selected, setSelected] = useState<any[]>([]);
   const [totalToPick, setTotalToPick] = useState(0);
-  const [pickPlan, setPickPlan] = useState<{}>({});
+  const [pickPlan, setPickPlan] = useState<{ [key: number]: number }>({});
   const [autoPick, setAutoPick] = useState(false);
 
   const panelRef = useRef<any>(null);
@@ -29,7 +29,7 @@ function App() {
   const fetchArtworks = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`https://api.artic.edu/api/v1/artworks?page=${page}&limit=${limit}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}page=${page}&limit=${limit}`);
       setArtworks(res.data.data);
     } catch (error) {
       console.error("Error fetching artworks:", error);
