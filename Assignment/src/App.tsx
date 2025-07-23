@@ -143,11 +143,14 @@ function App() {
               <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                 <Button icon="pi pi-chevron-down" rounded text onClick={(e) => panelRef.current?.toggle(e)} />
                 <OverlayPanel ref={panelRef}>
+                
+
                   <input
                     type="number"
                     placeholder="0"
                     onChange={onQuickPick}
                     value={totalToPick}
+                    
                     style={{ width: "60px", padding: "4px", textAlign: "center" }}
                   />
                 </OverlayPanel>
